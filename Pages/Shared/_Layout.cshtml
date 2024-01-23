@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]Moment1.1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar-light border-bottom border-dark mb-5">
+            <div class="navCon navbar justify-content-between m-auto navbar-expand-lg">
+                <a class="navbar-brand p-4 logoa" asp-page="/Index">
+                    <h1 class="display-6 logo">
+                        Moment 1.1
+                    </h1>
+                </a>
+                <div class="navbar-nav navdate">
+                    @{
+                        string? date = DateTime.Now.ToString("yyyy/MM/dd");
+                    }
+                    <p class="nav-item nav-link mt-3 text-black border border-dark">Dagens datum är: @date</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="con">
+        <nav class="sidenav border border-dark">
+            <div class="navbar d-sm-inline-flex w-100">
+                <ul class="navbar-nav flex-grow-1 text-center">
+                    <li class="nav-item m-auto w-75 mb-3 active border border-dark">
+                        <a class="nav-link" asp-page="/Index">Start</a>
+                    </li>
+                    <li class="nav-item m-auto border border-dark w-75 mb-3 ">
+                        <a class="nav-link" asp-page="/Razor">Razor</a>
+                    </li>
+                    <li class="nav-item m-auto border border-dark w-75">
+                        <a class="nav-link" asp-page="/About">Om mig</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="main border border-dark">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="footer text-muted">
+        <div class="border border-dark mt-3">
+            <p class="text-center m-0 p-2 footertext">Av: Edwin Lundbäck - Kontakta mig via e-post <a class=" text-decoration-none mail" href="mailto:edwinlundback@@gmail.com">edwinlundback@@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
